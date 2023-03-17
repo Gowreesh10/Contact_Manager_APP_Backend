@@ -18,7 +18,12 @@ const createContact = asyncHandler(async(req,res) =>{
         res.status(400)
         throw new Error("Please provide all the details");
     }
-    res.status(201).json({message:"Create contact"});
+    const contact = await Contact.create({
+        Name,
+        Email,
+        Phone
+    });
+    res.status(201).json(contact);
 })
 
 //@desc Get a single contact

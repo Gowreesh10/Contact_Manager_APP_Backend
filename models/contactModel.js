@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
 const contactSchema = mongoose.Schema({
-    name: {
+    Name: {
         type: 'string',
         required: [true,'please add the contact name!']
     },
-    email: {
+    Email: {
         type: 'string',
         required: [true,'please add the contact email!']
     },
-    phone: {
+    Phone: {
         type: 'string',
         required: [true,'please add the contact phone number!']
     }
