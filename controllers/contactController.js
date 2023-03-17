@@ -30,7 +30,12 @@ const createContact = asyncHandler(async(req,res) =>{
 //@route GET /api/contacts/:id
 //@access public
 const getContact = asyncHandler(async(req,res) =>{
-    res.status(200).json({message:`Get contact for ${req.params.id}`}); //req.params.id is the id of the contact we want to get
+    const contact = await Contact.findById(req.params.id);
+    if(!contact){
+        res.status(404);
+        throw new Error ("Contact not Found");
+    }
+    res.status(200).json(contact); //req.params.id is the id of the contact we want to get
 })
 
 //@desc Update a single contact
