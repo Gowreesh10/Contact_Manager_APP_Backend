@@ -13,6 +13,7 @@ const errorHandler = require('./middleware/errorHandler') // Import error handle
 const port = process.env.PORT || 5000; // Port to run server on
 app.use(express.json()); // Parse JSON bodies (as sent by API clients)
 app.use('/api/contacts',require('./routes/contactRoutes') ); //it is a middleware
+app.use('/api/users',require('./routes/userRoutes') );
 app.use(errorHandler) //it is a middleware
 
 app.listen(port, () =>{
